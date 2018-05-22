@@ -1,0 +1,15 @@
+<h1>Task Manager</h1>
+<div>
+  <input [(ngModel)]="newTask.description" />
+  <select [(ngModel)]="newTask.priority">
+    <option *ngFor="let priority of priorities" [ngValue]="priority">
+        {{getNameForPriority(priority)}}
+    </option>
+  </select>
+  <a href="" (click)="addTask(newTask, $event)">add new</a>
+</div>
+<ul>
+  <li *ngFor="let task of tasks" [class.low-priority]="task.priority === low" [class.high-priority]="task.priority === high">
+    {{task.description}}
+  </li>
+</ul>
